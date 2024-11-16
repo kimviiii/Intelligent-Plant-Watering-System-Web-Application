@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Plant Watering</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .healthy {
+            color: green;
+        }
+
+        .low-moisture {
+            color: red;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <header class="bg-blue-600 text-white text-center py-4 flex justify-between items-center px-4">
+        <h1 class="text-3xl font-bold">Intelligent Plant Watering Dashboard</h1>
+        <a href="index.html" class="bg-white text-blue-600 px-4 py-2 rounded hover:bg-blue-100 ml-4">Home</a>
+    </header>
+
+    <div class="container mx-auto mt-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Real-time Data Cards -->
+            <div class="card">
+                <h2 class="text-xl font-bold">Soil Moisture</h2>
+                <p id="soil-moisture" class="text-2xl healthy">45%</p>
+            </div>
+            <div class="card">
+                <h2 class="text-xl font-bold">Temperature</h2>
+                <p id="temperature" class="text-2xl">22°C</p>
+            </div>
+            <div class="card">
+                <h2 class="text-xl font-bold">Humidity</h2>
+                <p id="humidity" class="text-2xl">55%</p>
+            </div>
+        </div>
+
+        <div class="mt-12">
+            <h2 class="text-2xl font-bold text-center">Historical Data</h2>
+            <canvas id="historicalDataChart" class="mt-4"></canvas>
+        </div>
+
+        <!-- Buttons for Reports -->
+        <div class="mt-8 text-center">
+            <button id="btn-generate-report" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Generate Report</button>
+            <button id="btn-download-report" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Download Report</button>
+        </div>
+    </div>
+
+    <script>
+        // Fetch Data Function
+        function fetchData() {
+            // Example data fetching from a backend API
+            fetch('get_data.php')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('soil-moisture').innerText = data.soilMoisture + '%';
+                    document.getElementById('temperature').innerText = data.temperature + '°C';
+                    document.getElementById('humidity').innerText = data.humidity + '%';
+
+                    // Change color based on conditions
+                    if (data.soilMoisture < 30) {
+                        document.getElementById('soil-moisture').className = 'text-2xl low-moisture';
+                    } else {
+                        document.getElementById('soil-moisture').className = 'text-2xl healthy';
+                    }
+                });
+        }
+
+        // Fetch data every minute
+        setInterval(fetchData, 60000);
+        fetchData();
+
+        // Chart.js for Historical Data
+        var ctx = document.getElementById('historicalDataChart').getContext('2d');
+        var historicalDataChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [], // Time labels
+                datasets: [
+                    {
+                        label: 'Soil Moisture',
+                        data: [],
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        fill: false
+                    },
+                    {
+                        label: 'Temperature',
+                        data: [],
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        fill: false
+                    },
+                    {
+                        label: 'Humidity',
+                        data: [],
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Time'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Values'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Function to update chart data
+        function updateChartData() {
+            fetch('get_historical_data.php')
+                .then(response => response.json())
+                .then(data => {
+                    historicalDataChart.data.labels = data.time;
+                    historicalDataChart.data.datasets[0].data = data.soilMoisture;
+                    historicalDataChart.data.datasets[1].data = data.temperature;
+                    historicalDataChart.data.datasets[2].data = data.humidity;
+                    historicalDataChart.update();
+                });
+        }
+
+        // Update chart data every minute
+        setInterval(updateChartData, 60000);
+        updateChartData();
+
+        // Function to generate report
+        function generateReport() {
+            const soilMoisture = document.getElementById('soil-moisture').innerText;
+            const temperature = document.getElementById('temperature').innerText;
+            const humidity = document.getElementById('humidity').innerText;
+
+            const reportContent = `
+        Intelligent Plant Watering Report:
+        Soil Moisture: ${soilMoisture}
+        Temperature: ${temperature}
+        Humidity: ${humidity}
+    `;
+
+            alert('Report generated!\n\n' + reportContent);
+        }
+
+        // Function to download report as a text file
+        function downloadReport() {
+            const soilMoisture = document.getElementById('soil-moisture').innerText;
+            const temperature = document.getElementById('temperature').innerText;
+            const humidity = document.getElementById('humidity').innerText;
+
+            const reportContent = `
+        Intelligent Plant Watering Report:
+        Soil Moisture: ${soilMoisture}
+        Temperature: ${temperature}
+        Humidity: ${humidity}
+    `;
+
+            const blob = new Blob([reportContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'plant_watering_report.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Attach event listeners to the buttons
+        document.getElementById('btn-generate-report').addEventListener('click', generateReport);
+        document.getElementById('btn-download-report').addEventListener('click', downloadReport);
+    </script>
+</body>
+
+</html>
