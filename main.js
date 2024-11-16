@@ -1,22 +1,22 @@
 /* index */
 
 let lastScrollTop = 0;
-        const navbar = document.getElementById("navbar");
+const navbar = document.getElementById("navbar");
 
-        window.addEventListener("scroll", function () {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+window.addEventListener("scroll", function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-            if (scrollTop > lastScrollTop) {
-                // Scroll Down
-                navbar.classList.add("hidden");
-            } else {
-                // Scroll Up
-                navbar.classList.remove("hidden");
-            }
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
-        });
+    if (scrollTop > lastScrollTop) {
+        // Scroll Down
+        navbar.classList.add("hidden");
+    } else {
+        // Scroll Up
+        navbar.classList.remove("hidden");
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+});
 
-        // script.js
+// script.js
 
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');

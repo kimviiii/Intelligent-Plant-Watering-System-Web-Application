@@ -13,18 +13,21 @@
 
 /* Curvy edges on the navbar */
 .curvy {
-    border-radius: 0 0 20px 20px; /* Adjust the curve radius as needed */
+    border-radius: 0 0 20px 20px;
+    /* Adjust the curve radius as needed */
 }
 
 /* Hides the navbar on scroll down */
 .hidden {
-    top: -100px; /* Height of the navbar should be adjusted based on actual size */
+    top: -100px;
+    /* Height of the navbar should be adjusted based on actual size */
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .navbar {
-        width: 90%; /* Increase useable width on smaller screens */
+        width: 90%;
+        /* Increase useable width on smaller screens */
     }
 }
 
@@ -37,36 +40,43 @@
 
 /* Hamburger menu styles */
 #hamburger {
-    display: none; /* Default hidden for larger screens */
+    display: none;
+    /* Default hidden for larger screens */
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     #hamburger {
-        display: block; /* Show hamburger icon on smaller screens */
+        display: block;
+        /* Show hamburger icon on smaller screens */
     }
 
     #menu {
-        display: none; /* Hide the default navbar links */
+        display: none;
+        /* Hide the default navbar links */
     }
 
     #mobile-menu {
-        display: none; /* Hide the mobile menu by default */
+        display: none;
+        /* Hide the mobile menu by default */
     }
 
     .navbar {
-        width: 90%; /* Increase usable width on smaller screens */
+        width: 90%;
+        /* Increase usable width on smaller screens */
     }
 
     /* Show the mobile menu when active */
     #mobile-menu.active {
-        display: block; /* Show the mobile menu when activated */
+        display: block;
+        /* Show the mobile menu when activated */
     }
 }
 
 /* Ensure the mobile menu is styled to be visible below the navbar */
 #mobile-menu {
-    top: 56px; /* Adjust this value based on your navbar height */
+    top: 56px;
+    /* Adjust this value based on your navbar height */
 }
 
 /* dashboard */
@@ -114,7 +124,8 @@ header {
 
 .video-container {
     position: relative;
-    width: 300px; /* Set your desired width */
+    width: 300px;
+    /* Set your desired width */
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
