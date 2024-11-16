@@ -71,6 +71,10 @@
         display: block;
         /* Show the mobile menu when activated */
     }
+
+    .hero{
+        margin-top: 35%;
+    }
 }
 
 /* Ensure the mobile menu is styled to be visible below the navbar */
@@ -109,9 +113,13 @@ body {
 
 header {
     text-align: center;
-    padding: 2rem;
-    background: #3a3a3a;
-    color: white;
+    padding-top: 4rem;
+    background: #669b66;
+    color: rgb(253, 249, 249);
+}
+
+header h1{
+    font-size: 5rem;
 }
 
 .video-gallery {
@@ -169,4 +177,56 @@ header {
 
 .video-container:hover .play-button {
     transform: scale(1.2);
+}
+
+/* features */
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Feature Cards */
+.feature-card {
+    background: rgb(173, 243, 156);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Icons */
+.icon {
+    font-size: 40px;
+    color: #4CAF50; /* Change color to match your theme */
+    margin-bottom: 15px;
+}
+
+/* Headings */
+h2 {
+    color: #333;
+}
+
+h3 {
+    color: #222;
+}
+
+/* Responsive Design */
+@media (min-width: 640px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns for large screens */
+    }
 }
