@@ -16,14 +16,18 @@
             <h1 class="text-2xl font-bold ml-2">PlantGuardian</h1>
             <div class="flex space-x-4 mr-2">
                 <a href="dashboard.html" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-gray-600">Dashboard</a>
+                <a href="features.html" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-gray-600">Features</a>
+                <a href="how-it-works.html" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-gray-600">How It Works</a>
             </div>
         </div>
     </nav>
 
-    <header class="hero h-64 flex items-center justify-center text-white text-center mt-16">
-        <div>
+    <header class="hero h-64 flex items-center justify-center text-white text-center mt-16 bg-gradient-to-r from-green-500 to-green-700 ">
+        <div class="absolute inset-0 h-64 top-16 bg-black opacity-40"></div>
+        <div class="relative z-10">
             <h1 class="text-5xl font-bold">Welcome to Intelligent Plant Watering System</h1>
-            <p class="mt-4 text-lg">A Smart Solution for Sri Lanka’s Green Thumbs</p>
+            <p class="mt-4 text-lg">Effortless Plant Care at Your Fingertips</p>
+            <a href="dashboard.html" class="mt-6 inline-block bg-white text-green-500 px-6 py-2 rounded-full font-semibold hover:bg-gray-200">Get Started</a>
         </div>
     </header>
 
@@ -41,9 +45,32 @@
                 <li>Generate and download reports for analysis</li>
             </ul>
         </div>
+
+        <div class="bg-white shadow-lg rounded-lg p-6 mt-6">
+            <h3 class="text-xl font-bold">How It Works</h3>
+            <p class="mt-2">
+                Our system utilizes advanced sensor technology to keep track of your plants' needs. 
+                Here's a simple step-by-step guide to set it up:
+            </p>
+            <ol class="list-decimal list-inside mt-2">
+                <li>Install the sensors in your plant's soil.</li>
+                <li>Connect the sensors to the mobile app.</li>
+                <li>Set your watering schedule and preferences.</li>
+                <li>Get real-time updates and alerts directly to your phone.</li>
+            </ol>
+            <a href="how-it-works.html" class="mt-4 text-blue-500 hover:underline">Learn More</a>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-lg p-6 mt-6">
+            <h3 class="text-xl font-bold">Blog & Resources</h3>
+            <p class="mt-2">
+                Explore our articles for tips on plant care and best practices to ensure your plants thrive.
+            </p>
+            <a href="blog.html" class="mt-4 text-blue-500 hover:underline">Visit Our Blog</a>
+        </div>
     </div>
 
-    <footer class="bg-blue-600 text-white text-center py-4 mt-8">
+    <footer class="bg-green-800 text-white text-center py-4 mt-8">
         <p>&copy; 2024 Intelligent Plant Watering. All rights reserved.</p>
     </footer>
     <script src="main.js"></script>
