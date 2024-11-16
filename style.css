@@ -28,15 +28,47 @@
     }
 }
 
-/* Add this to your CSS file if not using Tailwind CSS */
-
-#mobile-menu {
-    display: none; /* Initially hidden */
+/* Base Navbar Styles */
+.navbar {
+    transition: all 0.3s ease; /* Smooth transitions for styles */
 }
 
-#menu-toggle.active + #mobile-menu {
-    display: block; /* Show mobile menu when toggle is active */
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items */
+        width: 100%; /* Use full width */
+        padding: 10px 0; /* Reduce vertical padding */
+    }
+
+    h1 {
+        margin-bottom: 10px; /* Space between the title and buttons */
+    }
+
+    .flex {
+        justify-content: center; /* Center buttons horizontally */
+        width: 100%; /* Make button container full width */
+        flex-wrap: wrap; /* Allow wrapping on small screens */
+        padding: 0; /* Remove unwanted padding */
+    }
+
+    .space-x-4 {
+        gap: 10px; /* Reduce spacing between buttons */
+    }
+
+    a {
+        display: block; /* Allow anchors to take full width for easier tapping */
+        width: calc(100% - 20px); /* Full width minus padding */
+        margin: 4px 0; /* Spacing between buttons */
+    }
+
+    .bg-green-500, .bg-blue-500, .bg-yellow-500 {
+        padding: 12px; /* Adjust button padding */
+        font-size: 16px; /* Adjust font size */
+    }
 }
+
 
 /* dashboard */
 
