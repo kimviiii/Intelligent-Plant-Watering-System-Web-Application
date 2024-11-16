@@ -4,21 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intelligent Plant Watering</title>
+    <title>PlantGuardian</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        .hero {
-            background-image: url('images/background_image.jpg'); /* Replace with your image URL */
-            background-size: cover;
-            background-position: center;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="bg-gray-100">
-    <header class="hero h-64 flex items-center justify-center text-white text-center">
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="navbar fixed top-0 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-75 shadow-lg z-50 curvy">
+        <div class="container mx-auto flex justify-between items-center py-4 flex-wrap">
+            <h1 class="text-xl font-bold">PlantGuardian</h1>
+            <div class="flex space-x-4 mt-2">
+                <a href="dashboard.html" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-gray-600">Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero h-64 flex items-center justify-center text-white text-center mt-16">
         <div>
-            <h1 class="text-5xl font-bold">Welcome to Intelligent Plant Watering</h1>
+            <h1 class="text-5xl font-bold">Welcome to Intelligent Plant Watering System</h1>
             <p class="mt-4 text-lg">A Smart Solution for Sri Lanka’s Green Thumbs</p>
         </div>
     </header>
@@ -36,17 +40,13 @@
                 <li>Historical data tracking for better decision-making</li>
                 <li>Generate and download reports for analysis</li>
             </ul>
-            <div class="mt-4 text-center">
-                <a href="dashboard.html" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                    Go to Dashboard
-                </a>
-            </div>
         </div>
     </div>
 
     <footer class="bg-blue-600 text-white text-center py-4 mt-8">
         <p>&copy; 2024 Intelligent Plant Watering. All rights reserved.</p>
     </footer>
+    <script src="main.js"></script>
 </body>
 
 </html>

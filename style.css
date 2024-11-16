@@ -1,0 +1,45 @@
+.hero {
+    background-image: url('images/background_image.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+}
+
+.navbar {
+    transition: top 0.3s;
+    width: 75%;
+}
+
+/* Curvy edges on the navbar */
+.curvy {
+    border-radius: 0 0 20px 20px; /* Adjust the curve radius as needed */
+}
+
+/* Hides the navbar on scroll down */
+.hidden {
+    top: -100px; /* Height of the navbar should be adjusted based on actual size */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        width: 90%; /* Increase useable width on smaller screens */
+    }
+}
+
+/* dashboard */
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.healthy {
+    color: green;
+}
+
+.low-moisture {
+    color: red;
+}
