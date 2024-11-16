@@ -28,6 +28,16 @@
     }
 }
 
+/* Add this to your CSS file if not using Tailwind CSS */
+
+#mobile-menu {
+    display: none; /* Initially hidden */
+}
+
+#menu-toggle.active + #mobile-menu {
+    display: block; /* Show mobile menu when toggle is active */
+}
+
 /* dashboard */
 
 .card {
