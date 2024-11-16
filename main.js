@@ -147,3 +147,34 @@ Humidity: ${humidity}
 // Attach event listeners to the buttons
 document.getElementById('btn-generate-report').addEventListener('click', generateReport);
 document.getElementById('btn-download-report').addEventListener('click', downloadReport);
+
+/* how-it-works */
+
+// Select all the video containers
+const videoContainers = document.querySelectorAll('.video-container');
+
+videoContainers.forEach(container => {
+    const video = container.querySelector('.video');
+    const overlay = container.querySelector('.overlay');
+
+    // Initially hide the video until the overlay is clicked
+    video.style.display = 'none';
+
+    // Add click event to overlay (play button)
+    overlay.addEventListener('click', () => {
+        if (video.paused) {
+            video.style.display = 'block'; // Show the video when it plays
+            video.play(); // Play the video
+            overlay.style.display = 'none'; // Hide overlay when the video plays
+        } else {
+            video.pause(); // Pause the video
+            overlay.style.display = 'flex'; // Show overlay again when paused
+        }
+    });
+
+    // Pause the video when it ends
+    video.addEventListener('ended', () => {
+        video.style.display = 'none'; // Hide video when it ends
+        overlay.style.display = 'flex'; // Show overlay again when the video ends
+    });
+});

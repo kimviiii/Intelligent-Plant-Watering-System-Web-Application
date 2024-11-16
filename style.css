@@ -46,3 +46,75 @@
 .low-moisture {
     color: red;
 }
+
+/* how-it-works */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+}
+
+header {
+    text-align: center;
+    padding: 2rem;
+    background: #3a3a3a;
+    color: white;
+}
+
+.video-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.video-container {
+    position: relative;
+    width: 300px; /* Set your desired width */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.video-container:hover {
+    transform: scale(1.05);
+}
+
+.video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-container:hover .overlay {
+    opacity: 1;
+}
+
+.play-button {
+    font-size: 50px;
+    color: white;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.video-container:hover .play-button {
+    transform: scale(1.2);
+}
