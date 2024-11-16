@@ -28,47 +28,46 @@
     }
 }
 
-/* Base Navbar Styles */
+/* Base styles for navbar */
 .navbar {
-    transition: all 0.3s ease; /* Smooth transitions for styles */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Hamburger menu styles */
+#hamburger {
+    display: none; /* Default hidden for larger screens */
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    #hamburger {
+        display: block; /* Show hamburger icon on smaller screens */
+    }
+
+    #menu {
+        display: none; /* Hide the default navbar links */
+    }
+
+    #mobile-menu {
+        display: none; /* Hide the mobile menu by default */
+    }
+
     .navbar {
-        flex-direction: column; /* Stack items vertically */
-        align-items: center; /* Center items */
-        width: 100%; /* Use full width */
-        padding: 10px 0; /* Reduce vertical padding */
+        width: 90%; /* Increase usable width on smaller screens */
     }
 
-    h1 {
-        margin-bottom: 10px; /* Space between the title and buttons */
-    }
-
-    .flex {
-        justify-content: center; /* Center buttons horizontally */
-        width: 100%; /* Make button container full width */
-        flex-wrap: wrap; /* Allow wrapping on small screens */
-        padding: 0; /* Remove unwanted padding */
-    }
-
-    .space-x-4 {
-        gap: 10px; /* Reduce spacing between buttons */
-    }
-
-    a {
-        display: block; /* Allow anchors to take full width for easier tapping */
-        width: calc(100% - 20px); /* Full width minus padding */
-        margin: 4px 0; /* Spacing between buttons */
-    }
-
-    .bg-green-500, .bg-blue-500, .bg-yellow-500 {
-        padding: 12px; /* Adjust button padding */
-        font-size: 16px; /* Adjust font size */
+    /* Show the mobile menu when active */
+    #mobile-menu.active {
+        display: block; /* Show the mobile menu when activated */
     }
 }
 
+/* Ensure the mobile menu is styled to be visible below the navbar */
+#mobile-menu {
+    top: 56px; /* Adjust this value based on your navbar height */
+}
 
 /* dashboard */
 

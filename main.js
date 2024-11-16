@@ -16,6 +16,25 @@ let lastScrollTop = 0;
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
         });
 
+        // script.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active'); // Toggle the 'active' class to show/hide the mobile menu
+    });
+
+    // Close the mobile menu when a navigation link is clicked
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active'); // Close the mobile menu
+        });
+    });
+});
+
 /* dashboard */
 
 // Fetch Data Function
