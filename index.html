@@ -7,6 +7,21 @@
     <title>PlantGuardian</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .footer {
+            width: 100%; /* Ensure it takes the full width */
+            padding: 24px; /* Increased padding for more height */
+            margin-top: 32px; /* Space above footer */
+            font-size: 1.25rem; /* Increased font size for better readability */
+        }
+
+        @media (max-width: 768px) {
+            .footer {
+                padding: 28px; /* Slightly larger padding for smaller screens */
+                font-size: 1.1rem; /* Slightly smaller font size for mobile */
+            }
+        }
+    </style>
 </head>
 
 <body class="bg-gray-100">
@@ -118,9 +133,10 @@
                 </div>
             </div>
         </div>
+    </div>
 
-    <footer class="bg-green-800 text-white text-center py-4 mt-8">
-        <p>&copy; 2024 Intelligent Plant Watering. All rights reserved.</p>
+    <footer class="footer bg-green-800 text-white text-center py-6 mt-8">
+        <p class="text-lg">&copy; 2024 Intelligent Plant Watering. All rights reserved.</p>
     </footer>
     <script src="main.js"></script>
 </body>

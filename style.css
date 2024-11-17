@@ -73,7 +73,13 @@
     }
 
     .hero{
-        margin-top: 35%;
+        margin-top: 18%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .hero {
+        margin-top: 18%; /* Adjust this value as needed for tablets */
     }
 }
 
@@ -111,7 +117,7 @@ body {
     background: #f4f4f4;
 }
 
-header {
+header{
     text-align: center;
     padding-top: 4rem;
     background: #669b66;
