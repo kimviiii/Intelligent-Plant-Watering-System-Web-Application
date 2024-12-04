@@ -1,7 +1,7 @@
 /* index */
 
 .hero {
-    background-image: url(../images/background.jpeg);
+    background-image: url("/static/images/background.jpeg");
     background-size: cover;
     background-position: center;
 }
