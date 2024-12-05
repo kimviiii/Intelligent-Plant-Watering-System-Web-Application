@@ -56,72 +56,72 @@ function fetchData() {
         });
 }
 
-// Fetch data every minute
-setInterval(fetchData, 60000);
-fetchData();
+// // Fetch data every minute
+// setInterval(fetchData, 60000);
+// fetchData();
 
-// Chart.js for Historical Data
-var ctx = document.getElementById('historicalDataChart').getContext('2d');
-var historicalDataChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: [], // Time labels
-        datasets: [
-            {
-                label: 'Soil Moisture',
-                data: [],
-                borderColor: 'rgba(75, 192, 192, 1)',
-                fill: false
-            },
-            {
-                label: 'Temperature',
-                data: [],
-                borderColor: 'rgba(255, 99, 132, 1)',
-                fill: false
-            },
-            {
-                label: 'Humidity',
-                data: [],
-                borderColor: 'rgba(54, 162, 235, 1)',
-                fill: false
-            }
-        ]
-    },
-    options: {
-        responsive: true,
-        scales: {
-            x: {
-                title: {
-                    display: true,
-                    text: 'Time'
-                }
-            },
-            y: {
-                title: {
-                    display: true,
-                    text: 'Values'
-                }
-            }
-        }
-    }
-});
+// // Chart.js for Historical Data
+// var ctx = document.getElementById('historicalDataChart').getContext('2d');
+// var historicalDataChart = new Chart(ctx, {
+//     type: 'line',
+//     data: {
+//         labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], // Time labels
+//         datasets: [
+//             {
+//                 label: 'Soil Moisture',
+//                 data: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20], // Soil Moisture data
+//                 borderColor: 'rgba(75, 192, 192, 1)',
+//                 fill: false
+//             },
+//             {
+//                 label: 'Temperature',
+//                 data: [3, 6, 9, 12, 15, 18, 21, 24, 27, 30], // Temperature data
+//                 borderColor: 'rgba(255, 99, 132, 1)',
+//                 fill: false
+//             },
+//             {
+//                 label: 'Humidity',
+//                 data: [4, 8, 12, 16, 20, 24, 28, 32, 36, 40], // Humidity data
+//                 borderColor: 'rgba(54, 162, 235, 1)',
+//                 fill: false
+//             }
+//         ]
+//     },
+//     options: {
+//         responsive: true,
+//         scales: {
+//             x: {
+//                 title: {
+//                     display: true,
+//                     text: 'Time'
+//                 }
+//             },
+//             y: {
+//                 title: {
+//                     display: true,
+//                     text: 'Values'
+//                 }
+//             }
+//         }
+//     }
+// });
 
-// Function to update chart data
-function updateChartData() {
-    fetch('get_historical_data.php')
-        .then(response => response.json())
-        .then(data => {
-            historicalDataChart.data.labels = data.time;
-            historicalDataChart.data.datasets[0].data = data.soilMoisture;
-            historicalDataChart.data.datasets[1].data = data.temperature;
-            historicalDataChart.data.datasets[2].data = data.humidity;
-            historicalDataChart.update();
-        });
-}
+// // Function to update chart data
+// function updateChartData() {
+//     fetch('/sensor_data')
+//         .then(response => response.json())
+//         .then(data => {
+//             historicalDataChart.data.labels = data.time;
+//             historicalDataChart.data.datasets[0].data = data.soilMoisture;
+//             historicalDataChart.data.datasets[1].data = data.temperature;
+//             historicalDataChart.data.datasets[2].data = data.humidity;
+//             historicalDataChart.update();
+//         });
+// }
 
-// Update chart data every minute
-setInterval(updateChartData, 60000);
-updateChartData();
+// // Update chart data every minute
+// setInterval(updateChartData, 60000);
+// updateChartData();
 
 // Function to generate report
 function generateReport() {

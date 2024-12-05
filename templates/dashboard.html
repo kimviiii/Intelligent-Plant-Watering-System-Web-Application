@@ -56,22 +56,60 @@
             <!-- Real-time Data Cards -->
             <div class="card">
                 <h2 class="text-xl font-bold">Soil Moisture</h2>
-                <p id="soil-moisture" class="text-2xl healthy">45%</p>
+                <p id="soil-moisture" class="text-2xl healthy">{{ avg_moisture }}%</p>
             </div>
             <div class="card">
                 <h2 class="text-xl font-bold">Temperature</h2>
-                <p id="temperature" class="text-2xl">22°C</p>
+                <p id="temperature" class="text-2xl">{{ avg_temperature }}°C</p>
             </div>
             <div class="card">
                 <h2 class="text-xl font-bold">Humidity</h2>
-                <p id="humidity" class="text-2xl">55%</p>
+                <p id="humidity" class="text-2xl">{{ avg_humidity }}%</p>
             </div>
         </div>
 
         <div class="mt-12">
             <h2 class="text-2xl font-bold text-center">Historical Data</h2>
-            <canvas style="background-color: rgb(241, 247, 159);" id="historicalDataChart" class="mt-4"></canvas>
+            <!-- <canvas style="background-color: rgb(241, 247, 159);" id="historicalDataChart" class="mt-4">
+                
+            </canvas> -->
         </div>
+
+        <div style="height: 100vh; width: 95%;">
+            <canvas id="myChart"></canvas>
+        </div>
+     
+        <script>
+            const labels = {{ labels1 | tojson}};
+     
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Soil Moisture',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: {{ values1 | tojson}},
+                },
+                {
+                    label: 'Humidity',
+                    backgroundColor: 'rgb(75, 192, 192)',
+                    borderColor: 'rgb(75, 192, 192)',
+                    data: {{ values3 | tojson}},
+                }]
+            };
+     
+            const config = {
+                type: 'line',
+                data: data,
+                options: { maintainAspectRatio: false }
+            };
+     
+            const myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+            );
+     
+        </script>
 
         <!-- Buttons for Reports -->
         <div class="mt-8 text-center">
