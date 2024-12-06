@@ -40,7 +40,7 @@ def get_average_humidity():
             count += 1
     if count == 0:
         return 0  # Avoid division by zero
-    return humiditySum / count
+    return round((humiditySum / count), 2)
 
 def get_sensor_data():
     conn = mysql.connector.connect(
@@ -52,7 +52,7 @@ def get_sensor_data():
     cursor = conn.cursor(dictionary=True)
     # cursor.execute("SELECT * FROM sensor_data")
     # cursor.execute("SELECT * FROM sensor_data ORDER BY id DESC LIMIT 20")
-    cursor.execute("SELECT * FROM sensor_data ORDER BY id LIMIT 20")
+    cursor.execute("SELECT * FROM sensor_data ORDER BY id DESC LIMIT 20")
     data = cursor.fetchall()
     cursor.close()
     conn.close()
